@@ -28,14 +28,6 @@ const SearchBox = ({ value, onChange, onGoBack, searchFocused }) => {
     searchFocused(false);
   }
   return (
-    // <div class="search">
-    //   <input class="input toggle" type="text" placeholder="Titles, genres" value={value} onChange={(e) => onChange(e.target.value)} />
-    //   <img
-    //     class="img"
-    //     src="https://static.vecteezy.com/system/resources/previews/000/442/657/non_2x/vector-search-icon.jpg"
-    //     alt=""
-    //   />
-    // </div>
     <div
       className="search"
       onMouseLeave={() =>
@@ -56,10 +48,10 @@ const SearchBox = ({ value, onChange, onGoBack, searchFocused }) => {
           onChange={(e) => onChange(e.target.value)}
           ref={searchInput}
         />
-        <span className="backArrow"><img src="/assets/back-arrow.svg" alt="go-back" width="30" height="30" onClick={() => (toggleInput(searchInput, false),clearSearch(searchInput),onGoBack && onGoBack())}/></span>
+        <span className="backArrow"><img src="assets/back-arrow.svg" alt="go-back" width="30" height="30" onClick={() => (toggleInput(searchInput, false),clearSearch(searchInput),onGoBack && onGoBack())}/></span>
         <img
           className="search"
-          src="/assets/searchIcon.svg"
+          src="assets/searchIcon.svg"
           alt="Search-icon"
           onClick={() => toggleInput(searchInput, true)}
         />

@@ -44,7 +44,7 @@ const Header = (props) => {
       <div className="header-items">
         <img
           className="logo"
-          src="/assets/play1.svg"
+          src="assets/play1.svg"
           alt=""
           height="auto"
           ref={logoRef}
