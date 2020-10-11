@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/diagnal-play/static/css/main.d93545a9.chunk.css",
+    "main.js": "/diagnal-play/static/js/main.6c4785f1.chunk.js",
+    "main.js.map": "/diagnal-play/static/js/main.6c4785f1.chunk.js.map",
+    "runtime-main.js": "/diagnal-play/static/js/runtime-main.fcefe651.js",
+    "runtime-main.js.map": "/diagnal-play/static/js/runtime-main.fcefe651.js.map",
+    "static/js/2.5f0549a6.chunk.js": "/diagnal-play/static/js/2.5f0549a6.chunk.js",
+    "static/js/2.5f0549a6.chunk.js.map": "/diagnal-play/static/js/2.5f0549a6.chunk.js.map",
+    "index.html": "/diagnal-play/index.html",
+    "precache-manifest.07ace7af8da1a44bb0aab971ba826168.js": "/diagnal-play/precache-manifest.07ace7af8da1a44bb0aab971ba826168.js",
+    "service-worker.js": "/diagnal-play/service-worker.js",
+    "static/css/main.d93545a9.chunk.css.map": "/diagnal-play/static/css/main.d93545a9.chunk.css.map",
+    "static/js/2.5f0549a6.chunk.js.LICENSE.txt": "/diagnal-play/static/js/2.5f0549a6.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fcefe651.js",
+    "static/js/2.5f0549a6.chunk.js",
+    "static/css/main.d93545a9.chunk.css",
+    "static/js/main.6c4785f1.chunk.js"
+  ]
+}
