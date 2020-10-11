@@ -1,0 +1,5 @@
+$mobile-max-width: 768px;
+
+@mixin breakpoint-medium-screen {
+  max-width: $mobile-max-width;
+}

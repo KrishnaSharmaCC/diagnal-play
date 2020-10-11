@@ -1,0 +1,12 @@
+@import '../../styles/variables.scss';
+.listingPage {
+  width: 100%;
+
+  .listings {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 90px;  
+  }
+  
+}

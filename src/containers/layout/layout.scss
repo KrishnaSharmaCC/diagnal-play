@@ -1,0 +1,13 @@
+@import '../../styles/utils.scss';
+@import '../../styles/variables.scss';
+.layout {
+  display: flex;
+  flex-direction: column;
+  .layout-wrapper {
+    padding: calc(36px + 62px) 30px 36px; // input field height for the top padding
+    background-color: $background-color;
+    height: 100vh;
+    font-size: $responsive-font-size;
+    overflow: auto;
+  }
+}
