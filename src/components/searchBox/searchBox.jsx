@@ -1,15 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
+import { ASSETS_PREFIX } from '../../constants';
 import './searchBox.scss';
 
 const SearchBox = ({ value, onChange, onGoBack, searchFocused }) => {
   const [searchKey, setSearchKey] = useState('');
   const searchInput = useRef(null);
-  useEffect(() => {
-    console.log('rendering');
-  });
   const toggleInput = (el, state) => {
     const ee = el?.current;
-    // console.log(ee);
     if (ee?.classList) {
       if (state) {
         ee.classList.add('show');
@@ -26,16 +23,15 @@ const SearchBox = ({ value, onChange, onGoBack, searchFocused }) => {
     ee.value = '';
     onChange('');
     searchFocused(false);
-  }
+  };
   return (
     <div
       className="search"
-      onMouseLeave={() =>
-      {
+      onMouseLeave={() => {
         // Do not trigger render.. use ref instead
-        !searchInput?.current?.value?.trim()?.length && toggleInput(searchInput, false)
-      }
-      }
+        !searchInput?.current?.value?.trim()?.length &&
+          toggleInput(searchInput, false);
+      }}
     >
       <div id="wrap">
         <input
@@ -48,10 +44,22 @@ const SearchBox = ({ value, onChange, onGoBack, searchFocused }) => {
           onChange={(e) => onChange(e.target.value)}
           ref={searchInput}
         />
-        <span className="backArrow"><img src="assets/back-arrow.svg" alt="go-back" width="30" height="30" onClick={() => (toggleInput(searchInput, false),clearSearch(searchInput),onGoBack && onGoBack())}/></span>
+        <span className="backArrow">
+          <img
+            src={`${ASSETS_PREFIX}/back-arrow.svg`}
+            alt="go-back"
+            width="30"
+            height="30"
+            onClick={() => (
+              toggleInput(searchInput, false),
+              clearSearch(searchInput),
+              onGoBack && onGoBack()
+            )}
+          />
+        </span>
         <img
           className="search"
-          src="assets/searchIcon.svg"
+          src={`${ASSETS_PREFIX}/searchIcon.svg`}
           alt="Search-icon"
           onClick={() => toggleInput(searchInput, true)}
         />

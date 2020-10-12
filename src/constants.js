@@ -1,0 +1,1 @@
+export const ASSETS_PREFIX = `${process.env.PUBLIC_URL}/assets`;

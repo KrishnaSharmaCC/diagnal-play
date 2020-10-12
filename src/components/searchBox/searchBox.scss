@@ -1,36 +1,4 @@
 @import '../../styles/variables.scss';
-// .search {
-//   display: block;
-//   margin: auto;
-//   position: relative;
-//   // padding: 0px 0px 20px 0px;
-//   box-sizing: border-box;
-//   input {
-//     width: 0px;
-//     height: 62px;
-//     background-color: $background-color;
-//     color: #fff;
-//     border: 1px solid transparent;
-//     padding: 0px 20px;
-//     padding-right: 35px;
-//     font-size: 16px;
-//     transition: 0.3s ease all;
-//     outline: none;
-//     box-shadow: none;
-//     &.toggle {
-//       // width: calc(100vw - 120px);
-//       width: 100%;
-//       // border-bottom-color: #fff;
-//     }
-//   }
-//   img {
-//     width: 18px;
-//     top: 50%;
-//     transform: translateY(-50%);
-//     right: 15px;
-//     position: absolute;
-//   }
-// }
 
 .search {
   @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
@@ -58,27 +26,28 @@
     outline: none;
     color: white;
     padding: 3px;
-    padding: 0px 80px;
+    padding: 0px 20px;
     width: 0px;
     position: absolute;
     top: 0;
     right: 0;
+    left: 100%;
     background: none;
     z-index: 2;
-    transition: width 0.4s cubic-bezier(1,1,1,1);
+    transition: all 0.4s cubic-bezier(1,1,1,1);
     cursor: pointer;
     &:focus:hover {
       // border-bottom: 1px solid #bbb;
     }
   
     /*&:focus,*/ &.show {
-      width: 100%;
-      z-index: 1;
-      // border-bottom: 1px solid #bbb;
+      width: calc(100% - 120px);
+      z-index: 6;
+      cursor: text;
+      left: 60px;
       cursor: text;
       &+.backArrow {
         // Animate back arrow
-        // right: 90%;
         left: 30px;
         opacity: 1;
         z-index: 3;

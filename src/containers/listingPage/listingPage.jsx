@@ -8,7 +8,7 @@ const ListingPage = (props) => {
   return (
     <div className="listingPage">
       <div className="listings">
-        {new Array(20).fill('').map((item, i) => <Card imgUrl={`http://picsum.photos/200/300?p=${i}`} name={`Movie-${i + 1}`} key={i}/>)}
+        {new Array(20).fill('').map((item, i) => <Card imgUrl={`http://picsum.photos/200/300?p=${i}`} name={`Movie-${i + 1}`}  key={i}/>)}
       </div>
     </div>
   )

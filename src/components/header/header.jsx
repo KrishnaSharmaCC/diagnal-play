@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { ASSETS_PREFIX } from '../../constants';
 import SearchBox from '../searchBox/searchBox';
 import './header.scss';
 /* View in fullscreen */
@@ -44,7 +45,7 @@ const Header = (props) => {
       <div className="header-items">
         <img
           className="logo"
-          src="assets/play1.svg"
+          src={`${ASSETS_PREFIX}/play1.svg`}
           alt=""
           height="auto"
           ref={logoRef}
