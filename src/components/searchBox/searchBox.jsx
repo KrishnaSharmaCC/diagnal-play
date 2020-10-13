@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ASSETS_PREFIX } from '../../constants';
 import './searchBox.scss';
 
@@ -18,6 +18,18 @@ const SearchBox = ({ value, onChange, onGoBack, searchFocused }) => {
       }
     }
   };
+  const setSearchKeyFromProps = (value) => {
+    if (searchInput?.current) {
+      searchInput.current.value = value;
+      toggleInput(searchInput, true)
+
+    } ;
+  }
+  useEffect(() => {
+    console.log(':::value', value);
+    value && setSearchKeyFromProps(value)
+  }, [value]);
+
   const clearSearch = (el) => {
     const ee = el?.current;
     ee.value = '';
@@ -46,7 +58,7 @@ const SearchBox = ({ value, onChange, onGoBack, searchFocused }) => {
         />
         <span className="backArrow">
           <img
-            src={`${ASSETS_PREFIX}/back-arrow.svg`}
+            src={`${ASSETS_PREFIX}/slices/Back.png`}
             alt="go-back"
             width="30"
             height="30"
@@ -59,7 +71,7 @@ const SearchBox = ({ value, onChange, onGoBack, searchFocused }) => {
         </span>
         <img
           className="search"
-          src={`${ASSETS_PREFIX}/searchIcon.svg`}
+          src={`${ASSETS_PREFIX}/slices/search.png`}
           alt="Search-icon"
           onClick={() => toggleInput(searchInput, true)}
         />

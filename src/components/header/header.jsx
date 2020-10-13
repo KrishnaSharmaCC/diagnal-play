@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { useSelector } from 'react-redux';
 import { ASSETS_PREFIX } from '../../constants';
 import SearchBox from '../searchBox/searchBox';
 import './header.scss';
@@ -30,6 +31,7 @@ function closeFullscreen(elem) {
 
 const Header = (props) => {
   const logoRef = useRef(null);
+  const searchText = useSelector(({ reducer1 }) => reducer1.searchText);
   const toggleLogo = (logoEl, state) => {
     const logo = logoEl?.current;
     if (logo?.classList) {
@@ -45,7 +47,7 @@ const Header = (props) => {
       <div className="header-items">
         <img
           className="logo"
-          src={`${ASSETS_PREFIX}/play1.svg`}
+          src={`${ASSETS_PREFIX}/assets/play.svg`}
           alt=""
           height="auto"
           ref={logoRef}
@@ -54,7 +56,7 @@ const Header = (props) => {
           }
         />
         <SearchBox
-          value={props.value}
+          value={searchText}
           onChange={props.onChange}
           onGoBack={null}
           searchFocused={(state) => toggleLogo(logoRef, state)}

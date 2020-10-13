@@ -1,18 +1,26 @@
 import React, { memo, useEffect, useRef, useState } from 'react';
+import { FALLBACK_IMAGE } from '../../constants';
 import './card.scss';
 const Card = ({ imgUrl, name, loaded = true }) => {
   const [delay, setDelay] = useState(loaded);
   useEffect(() => {
     setTimeout(() => {
       setDelay(false)
-    }, 2000);
-  }, [])
+    }, 1500);
+  }, []);
+  const imgRef = useRef(null);
+  const loadFallbackImage = (e) => {
+    const el = imgRef?.current;
+    if (el) {
+      el.src = FALLBACK_IMAGE;
+    }
+  }
   return (
     !delay ? <div className="playCard">
       <div className="playCardImageContainer">
-        <img src={imgUrl} alt={name} className="playCardImage" />
+        <img src={imgUrl} alt={name} className="playCardImage" onError={(e) => loadFallbackImage(e)} ref={imgRef}/>
       </div>
-      <p className="playCardName">{name}</p>
+      <p className="playCardName" title={name}>{name}</p>
      </div>
         :
     <div className="skelton">

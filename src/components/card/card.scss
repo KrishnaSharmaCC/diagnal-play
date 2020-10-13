@@ -37,6 +37,10 @@
   }
   .playCardName {
     color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: calc(30vw - 28px);
     transition: all 0.08s ease-in-out;
   }
 }
