@@ -1,9 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ASSETS_PREFIX } from '../../constants';
 import './searchBox.scss';
 
 const SearchBox = ({ value, onChange, searchFocused }) => {
-  const [searchKey, setSearchKey] = useState('');
   const searchInput = useRef(null);
   const toggleInput = (el, state) => {
     const ee = el?.current;
@@ -26,7 +25,6 @@ const SearchBox = ({ value, onChange, searchFocused }) => {
     } ;
   }
   useEffect(() => {
-    console.log(':::value', value);
     value && setSearchKeyFromProps(value)
   }, [value]);
 

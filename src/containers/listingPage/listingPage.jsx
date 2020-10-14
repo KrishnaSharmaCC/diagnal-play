@@ -3,24 +3,18 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { useDispatch, useSelector } from 'react-redux';
 import Card from '../../components/card/card';
 import { ASSETS_PREFIX } from '../../constants';
+import { ACTIONS } from '../../redux/actions';
 import { fetchMoreItems } from '../../utils/fetchUtil';
 import './listingPage.scss';
 
-const ListingPage = () => {
-  // !TODO: - Fix font,
-  // !TODO: - Check font sizes,
-  // !TODO: - Check virtual loading,
-  // !TODO: - Check layout,
-  // !TODO: - Add comments,
-  // !TODO: - Remove comments,
-  // !TODO: - Remove unused CSS,
-  // !TODO: - Fix reducer name,
-  // !TODO: - Remove first counter page,
+const TOTAL_PAGES = 3; // This is the maximum page returned by the API endpoint..
 
-  const assets = useSelector(({ reducer1 }) => reducer1?.['assets']);
+const ListingPage = () => {
+  
+  const assets = useSelector(({ data }) => data?.['assets']);
   const dispatch = useDispatch();
   const [page, setCurrentPage] = useState(1);
-  const searchKey = useSelector(({ reducer1 }) => reducer1?.searchText);
+  const searchKey = useSelector(({ data }) => data?.searchText);
 
   // Fetch the movies list for the first load..
   useEffect(() => {
@@ -53,7 +47,7 @@ const ListingPage = () => {
       }
       // Update redux state containing actual all the results..
       dispatch({
-        type: 'FEED_ITEMS',
+        type: ACTIONS.FEED_ITEMS,
         data: {
           currentPage: _page,
           total: total,
@@ -71,7 +65,7 @@ const ListingPage = () => {
   const filterAndDispatchIfSearching = (_arr) => {
     const filteredData = filterList(_arr, searchKey);
     dispatch({
-      type: 'SEARCH_RESULTS',
+      type: ACTIONS.SEARCH_RESULTS,
       data: {
         currentPage: page,
         searchResults: filteredData,
@@ -102,7 +96,7 @@ const ListingPage = () => {
         <InfiniteScroll
           dataLength={iterableItems?.length}
           next={() => {
-            if (page + 1 < 4) {
+            if (page + 1 <= TOTAL_PAGES) {
               setCurrentPage((p) => p + 1);
               fetchMovieList(page + 1);
             }
@@ -110,6 +104,7 @@ const ListingPage = () => {
           // Will be true when search key is present so that user can keep
           // scrolling for more data..
           hasMore={searchKey ? true : +assets.total > assets.list.length}
+          scrollThreshold={0.6}
           scrollableTarget="scrollable"
         >
           <div
