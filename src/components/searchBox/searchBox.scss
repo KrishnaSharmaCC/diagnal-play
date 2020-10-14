@@ -1,7 +1,6 @@
 @import '../../styles/variables.scss';
 
 .search {
-  @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
   .searchInputWrapper {
     position: relative;
     display: flex;
@@ -14,11 +13,8 @@
 
   .searchInput {
     height: 60px;
-    // font-size: 2rem;
     font-size: $responsive-icons-size;  
     display: inline-block;
-    font-family: 'Lato';
-    font-weight: 400;
     border: none;
     outline: none;
     color: white;
@@ -33,9 +29,6 @@
     z-index: 2;
     transition: all 0.4s cubic-bezier(1,1,1,1);
     cursor: pointer;
-    &:focus:hover {
-      // border-bottom: 1px solid #fff;
-    }
   
     &.show {
       border-bottom: 1px solid #fff;

@@ -13,6 +13,7 @@
     position: relative;
     .static {
       display: flex;
+      align-items: center;
       position: absolute;
       left: calc(42px + 2vmin);
       top: 50%;
@@ -23,14 +24,17 @@
         height: calc(10px + 3vmin);
         width: calc(10px + 3vmin);
         width: $responsive-icons-size;
-        margin-right: 20px;
+        margin-right: 15px;
         cursor: pointer;
         transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
       }
       .currentPageTitle {
         color: white;
         font-size: calc(10px + 2vmin);
-        font-weight: bold;
+        cursor: pointer;
+        @media (min-width: 767px) {
+          font-weight: bold;
+        }
       }
       &.hide {
         opacity: 0;
