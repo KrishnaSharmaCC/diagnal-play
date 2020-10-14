@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ASSETS_PREFIX } from '../../constants';
+import { useDebouncedCallback } from '../../hooks/useDebounceCallback';
 import SearchBox from '../searchBox/searchBox';
 import './header.scss';
 /* View in fullscreen */
@@ -29,37 +30,43 @@ function closeFullscreen(elem) {
   }
 }
 
-const Header = (props) => {
-  const logoRef = useRef(null);
+const Header = () => {
+  const staticRef = useRef(null);
   const searchText = useSelector(({ reducer1 }) => reducer1.searchText);
-  const toggleLogo = (logoEl, state) => {
-    const logo = logoEl?.current;
-    if (logo?.classList) {
+  const pageTitle = useSelector(({ reducer1 }) => reducer1.currentPageTitle);
+  const dispatch = useDispatch();
+
+  const toggleStaticVisibility = ({current: staticElm}, state) => {
+    if (staticElm?.classList) {
       if (state) {
-        logo.classList.add('hide');
+        staticElm.classList.add('hide');
         return;
       }
-      logo.classList.remove('hide');
+      staticElm.classList.remove('hide');
     }
   };
+  const onSearch = useDebouncedCallback((key) => {
+    console.log(key);
+    dispatch({ type: 'SEARCH', data: {searchText: key} });
+  }, 500)
   return (
     <div className="header">
       <div className="header-items">
+        <div className="static" ref={staticRef}>
         <img
-          className="logo"
-          src={`${ASSETS_PREFIX}/assets/play.svg`}
+          className="backButton"
+          src={`${ASSETS_PREFIX}/slices/Back.png`}
           alt=""
-          height="auto"
-          ref={logoRef}
-          onClick={() => 
-            openFullscreen(document.documentElement)    
-          }
+          // onClick={() => 
+          //   openFullscreen(document.documentElement)    
+          // }
         />
+        <p className="currentPageTitle">{pageTitle}</p>
+        </div>
         <SearchBox
           value={searchText}
-          onChange={props.onChange}
-          onGoBack={null}
-          searchFocused={(state) => toggleLogo(logoRef, state)}
+          onChange={onSearch}
+          searchFocused={(state) => toggleStaticVisibility(staticRef, state)}
         />
       </div>
     </div>

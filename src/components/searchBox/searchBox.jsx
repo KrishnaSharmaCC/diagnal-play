@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ASSETS_PREFIX } from '../../constants';
 import './searchBox.scss';
 
-const SearchBox = ({ value, onChange, onGoBack, searchFocused }) => {
+const SearchBox = ({ value, onChange, searchFocused }) => {
   const [searchKey, setSearchKey] = useState('');
   const searchInput = useRef(null);
   const toggleInput = (el, state) => {
@@ -45,7 +45,7 @@ const SearchBox = ({ value, onChange, onGoBack, searchFocused }) => {
           toggleInput(searchInput, false);
       }}
     >
-      <div id="wrap">
+      <div className="searchInputWrapper">
         <input
           id="search"
           name="search"
@@ -56,19 +56,6 @@ const SearchBox = ({ value, onChange, onGoBack, searchFocused }) => {
           onChange={(e) => onChange(e.target.value)}
           ref={searchInput}
         />
-        <span className="backArrow">
-          <img
-            src={`${ASSETS_PREFIX}/slices/Back.png`}
-            alt="go-back"
-            width="30"
-            height="30"
-            onClick={() => (
-              toggleInput(searchInput, false),
-              clearSearch(searchInput),
-              onGoBack && onGoBack()
-            )}
-          />
-        </span>
         <img
           className="search"
           src={`${ASSETS_PREFIX}/slices/search.png`}

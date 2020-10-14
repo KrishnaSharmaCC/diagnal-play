@@ -1,12 +1,14 @@
 import { combineReducers, createStore } from 'redux';
 
-const initialState = { logCount: 1, searchText: '', assets: {currentPage: 1, total: 0, list: []} };
-const reducer1 = (state = initialState, {type, data}) => {
+const initialState = { searchText: '', currentPageTitle: '', assets: { currentPage: 1, total: 0, list: [], searchResults: [] } };
+const reducer1 = (state = initialState, { type, data }) => {
   switch (type) {
-    case 'LOG':
-      return { ...state, logCount: state.logCount + 1 };
     case 'FEED_ITEMS':
-      return {...state, searchText: data.searchText, assets: {currentPage: data.currentPage, total: data.total, list: [...state.assets.list, ...data.list]}}
+      return { ...state, currentPageTitle: data.currentPageTitle, assets: { ...state.assets, currentPage: data.currentPage, total: data.total, list: [...state.assets.list, ...data.list] } };
+    case 'SEARCH_RESULTS':
+      return { ...state, assets: { ...state.assets, currentPage: data.currentPage, searchResults: [...data.searchResults] } }
+    case 'SEARCH':
+      return { ...state, searchText: data.searchText }
     default:
       return state;
   }

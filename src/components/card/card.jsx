@@ -8,6 +8,8 @@ const Card = ({ imgUrl, name, loaded = true }) => {
       setDelay(false)
     }, 1500);
   }, []);
+  
+  // Reference to the image element..
   const imgRef = useRef(null);
   const loadFallbackImage = (e) => {
     const el = imgRef?.current;
@@ -47,7 +49,7 @@ const PreloadImage = memo(({ imgUrl, name }) => {
   return (
     <div className="skelton lines">
       <div className="image pulse" ref={image}></div>
-  {!!!(name && imgUrl) ? <div className="text pulse"></div> : <div style={{color: 'white', marginRight: 'auto'}}>{name}</div>}
+      {!!!(name && imgUrl) ? <div className="text pulse"></div> : <div style={{ color: 'white', marginRight: 'auto' }}>{name}</div>}
     </div>
   )
-})
+});

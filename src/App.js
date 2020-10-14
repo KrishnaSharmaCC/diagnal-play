@@ -7,13 +7,9 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        {/* <header className="App-header">
-          <h1>Initial store setup done</h1> */}
         <Layout> 
-          {/* <Sample /> */}
           <ListingPage />
           </Layout>
-        {/* </header> */}
       </div>
     </Provider>
   );
