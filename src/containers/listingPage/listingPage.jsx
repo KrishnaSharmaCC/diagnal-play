@@ -111,7 +111,7 @@ const ListingPage = () => {
             className="listings"
             id="scrollable"
             // Height is the total height - navbar/search bar height..
-            style={{ height: 'calc(100vh - 140px)', overflow: 'auto' }}
+            style={{ height: 'calc(100vh - 100px)', overflow: 'auto' }}
           >
             {iterableItems?.map((item, i) => (
               <Card
