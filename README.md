@@ -16,6 +16,8 @@ This is a youtube like app built using react to display a list of images/preview
 
 - ``Nice and slick animations for the search bar and images (during load)``  
 
+- ``## BONUS: Click on the page title `Romantic Comedy` near the arrow for a Full screen experience!!!``
+
 ### |
 
 
