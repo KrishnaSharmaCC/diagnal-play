@@ -26,6 +26,7 @@ This is a youtube like app built using react to display a list of images/preview
 ### |
 ### Enhancements (TBD):
 
+- Serve static assets via CDN for better load times..
 - Use Virtual Loading to render only the items visible in the viewport.
 - For better responsiveness, we can specify breakpoints for devices like mobile, tablets, desktops etc.
 - Use cloudinary or similar technologies to optimize thumbnails on the go based on device width/height.
